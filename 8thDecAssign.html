@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication of 3 Numbers</title>
+    <style>
+        body {
+            display: flex;
+            height: 80vh;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-image: url("https://images.unsplash.com/photo-1639242585400-f7029d3eb17c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        input {
+            height: 7vh;
+            width: 20vw;
+            margin-bottom: 5px solid rgb(22, 22, 22);
+            outline: none;
+            border: 1px solid green;
+            text-align: center;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button {
+            font-size: medium;
+            font-weight: bold;
+            padding: 20px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            border: 2px solid gray;
+            background-color: indianred;
+            color: khaki;
+        }
+
+        #output {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            color: white;
+            display: none;
+            margin-top: 40px;
+        }
+
+        h2 {
+            color: aqua;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Multiplication of 3 numbers using nested functions</h2>
+    <div>
+
+        <input type="number" id="a" placeholder="enter value of a">
+        <input type="number" id="b" placeholder="enter value of b">
+        <input type="number" id="c" placeholder="enter value of c">
+        <button>click here to multiply a,b,c</button>
+    </div>
+    <div id="output"></div>
+    <script>
+
+        function multiply(a) {
+            return function xyz(b) {
+                return function pqr(c) {
+                    return a * b * c;
+                }
+            }
+        }
+
+        document.querySelector('button').addEventListener('click', () => {
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let c = document.getElementById('c').value;
+
+            let x = multiply(a)(b)(c);
+            console.log(x);
+
+            let h1 = document.createElement('h1');
+            h1.innerText = x;
+            document.getElementById('output').appendChild(h1);
+            document.getElementById('output').style.display = "flex";
+
+        })
+    </script>
+</body>
+
+</html>
